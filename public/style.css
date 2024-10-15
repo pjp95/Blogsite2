@@ -1,0 +1,78 @@
+html {
+    font-size: 1.4vw;
+    font-family:'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: blanchedalmond;
+}
+h1 {
+    text-align: center;
+    margin: 0 2rem;
+    padding: 1rem;
+    background-color: white;
+}
+main {
+    text-align: center;
+    margin: 0 2rem;
+    padding: 1rem;
+    background-color: white;
+}
+
+form > *{
+    margin: 0.25rem;
+}
+
+#postContent {
+    resize:both;
+    width:80%;
+}
+
+button, #createButton {
+    background-color: pink;
+    color: black;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    border: none;
+    padding: 0.25rem;
+    font-weight: 800;    
+}
+button:hover, #createButton:hover{
+    background-color: black;
+    color: white;
+    border-radius: 0.5rem;
+    border: none;
+    padding: 0.25rem;
+    font-weight: 800;    
+}
+
+/*POST STYLING*/
+.post {
+    text-align: left;
+    margin: 1rem;
+    padding: 0;
+    border: 0.2rem solid darkgrey;
+    border-radius: 1rem;
+    border-top-left-radius: 0;
+}
+.postHeader {
+    margin: 0;
+    padding: 0.5rem;
+    border-top-right-radius: 1rem;
+    background-color: rgb(235, 235, 235);
+    color: black;
+}
+.content {
+    margin: 0;
+    padding: 0.75rem;
+    min-height: 5rem;
+}
+.title, .author, .date {
+    margin: 0;
+    padding: 0.25rem;
+}
+.options {
+    margin: 0;
+    padding: 0.5rem;
+    text-align: right;
+}

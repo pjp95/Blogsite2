@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Into Account</title>
+</head>
+<body>
+    <h1>Sign Into Account</h1>
+    <main>
+        
+        <section id="signIn">
+            <form action="/submit" method="POST">
+                <input type="text" id="username" name="username" maxlength="255" size="20" required><br>
+                <input type="password" id="password" name="password" maxlength="255" size="20" required><br>
+                <%if (locals.error && error != "") { %>
+                    <p style="color: red;"><%=error%></p>
+                <%}%>
+                <button type="submit" name="action" value="signIn">Sign In</button> <%# Name and Value so that the server can differentiate this from other form actions in index.ejs%>
+            </form>
+            <a href="sign-up.ejs">Need to sign-up?</a><br>
+        </section>
+    </main>
+</body>
+</html>

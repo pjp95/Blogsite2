@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preston's Blogsite</title>
+</head>
+<body>
+    <h1>Blogsite</h1>
+    <main>
+        <a id="createButton" href="newpost.ejs">Create a new post</a><br>
+        <% if (locals.username) { %>
+            <span style="float:left; background-color: white;">Signed in as <%=username%></span><br>
+            <a href="sign-in.ejs" style="float:right; background-color: white;">Log out</a><br>
+        <% } %>
+        <section id="posts">
+            <%if (locals.posts) {
+                for (let i = 0; i < posts.length; i++) {%>
+                <div class="post">
+                    <div class="postHeader">
+                        <h2 class="title"><%=posts[i].title%></h2>
+                        <h4 class="author"><%=posts[i].creator_name%></h4>
+                        <p class="date"><%=posts[i].date_created%></p>
+                    </div>
+                    <p class="content"><%=posts[i].body%></p>
+                    <div class="options">
+                        <form action="/submit" method="POST"> <%# Making this a form so that the buttons can send a POST request to index.js and modify the data%>
+                            <input type="hidden" name="postNumber" value="<%=i%>">
+                            <input type="hidden" name="blogID" value="<%=posts[i].blog_id%>">
+                            <% if (locals.user_id) {
+                                if (user_id == posts[i].creator_id) { %>
+                                <button class="edit" name="action" value="editPost">Edit Post</button>
+                                <button class="delete" name="action" value="deletePost">Delete Post</button>
+                            <% }} %>
+                        </form>
+                    </div>
+                </div>
+            <%}}%>   
+        </section>
+    </main>
+</body>
+</html>

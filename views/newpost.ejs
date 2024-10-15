@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <link rel="stylesheet" href="/style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create new post</title>
+    </head>
+    <body>
+        <h1>Create a New Post</h1>
+        <main style="text-align: left;">
+            <% if (locals.edit & edit) { %>
+            <form action="/submit" method="POST">
+                <input type="text" id="postTitle" name="postTitle" maxlength="100" size="20" value="<%=posts[editNumber].title%>" required><br>
+                <input type="text" id="postAuthor" name="postAuthor" maxlength="100" size="20" value="<%=posts[editNumber].creator_name%>" required><br>
+                <input type="text" id="postContent" name="postContent" value="<%=posts[editNumber].body%>" required><br>
+                <button type="submit" name="action" value="submitPost">Submit Post</button> <%# Name and Value or so that the server can differentiate this from other form actions in index.ejs%>
+            </form>
+            <%} else {%>
+            <form action="/submit" method="POST">
+                <input type="text" id="postTitle" name="postTitle" maxlength="100" size="20" placeholder="Title" required><br>
+                <input type="text" id="postAuthor" name="postAuthor" maxlength="100" size="20" placeholder="Author" required><br>
+                <input type="text" id="postContent" name="postContent" placeholder="Lorem ipsum" required><br>
+                <button type="submit" name="action" value="submitPost">Submit Post</button> <%# Name and Value or so that the server can differentiate this from other form actions in index.ejs%>
+            </form>
+            <%}%>
+        </main>
+    </body>
+    <a href="/">Return Home</a>
+</html>

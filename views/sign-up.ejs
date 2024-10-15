@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Account</title>
+</head>
+<body>
+    <h1>Create New Account</h1>
+    <main>
+        <section id="signUp">
+            <form action="/submit" method="POST">
+                <input type="text" id="newUsername" name="newUsername" maxlength="255" size="20" required><br>
+                <input type="password" id="newPassword" name="newPassword" maxlength="255" size="20" required><br>
+                <%if (locals.error && error != "") { %>
+                    <p style="color: red;"><%=error%></p>
+                <%}%>
+                <button type="submit" name="action" value="signUp">Sign Up</button> <%# Name and Value so that the server can differentiate this from other form actions in index.ejs%>
+            </form>
+            <a href="sign-in.ejs">Sign into existing account</a>
+        </section>
+    </main>
+</body>
+</html>
